@@ -41,15 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # agregar apps para Auth - paso 1
     'django.contrib.sites',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.github',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     #
     'administrativo',
 
     'rest_framework',
 ]
+SITE_ID = 1
 
 # agregar apps para Auth - paso 2
 AUTHENTICATION_BACKENDS = (
@@ -69,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    #
+    #pip install djangorestframework
     'administrativo',
 
     'rest_framework',
@@ -57,6 +57,15 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}
 
 # agregar apps para Auth - paso 3
 ACCOUNT_EMAIL_VERIFICATION = 'none'
@@ -151,7 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # agregar apps para Auth - paso 4
 LOGIN_REDIRECT_URL = reverse_lazy('index')
-
+SITE_ID = 1
 # agregar información para
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

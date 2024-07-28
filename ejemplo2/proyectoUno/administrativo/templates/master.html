@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     {% load static %}
+    {% load socialaccount %}
+    {% load account %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
@@ -43,6 +45,7 @@
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
           <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
+        <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
         {% endif %}
       </ul>
     </nav>
