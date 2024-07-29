@@ -58,7 +58,11 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        # configuración específica del proveedor, si es necesario
+    }
+}
 # agregar apps para Auth - paso 3
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
